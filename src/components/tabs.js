@@ -19,10 +19,12 @@ const Tabs = (topics) => {
   // creating the elements
   const topicsElement = document.createElement('div');
   const tabElement = document.createElement('div');
+  
 
   // setting the class names
   topicsElement.classList.add("topics");
-  tabElement.classList.add("tab")
+  tabElement.classList.add("tab");
+  
 
   // setting the text content
   tabElement.textContent = `${topics}`
@@ -48,7 +50,7 @@ const tabsContainer = document.querySelector('div.tabs-container');
   .then((res => {
     const results = res.data;
 
-    tabsContainer.appendChild(Tabs('JavaScript'));
+    tabsContainer.appendChild(Tabs('REACT'))
   }))
   .catch((error => {
     console.log(error);
