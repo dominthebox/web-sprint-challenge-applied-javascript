@@ -37,7 +37,7 @@ const Card = (article) => {
   // setting text content
   headline.textContent = article.headline;
   image.setAttribute('src', article.authorPhoto);
-  authorN.textContent = `By ${authorName}`
+  authorN.textContent = `By ${article.authorName}`;
 
   //setting the structure
   card.appendChild(headline);
@@ -47,7 +47,7 @@ const Card = (article) => {
   imgContainer.appendChild(authorN);
 
   card.addEventListener('click', () => {
-    console.log(article.headline)
+    console.log(article[0].headline)
   })
 
   return card
@@ -63,12 +63,14 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
 
-  const cards = document.querySelector('div.cards-container')
+  // const cards = document.querySelector('div.cards-container');
+  const cards = document.querySelector(selector);
 
   axios
   .get('https://lambda-times-api.herokuapp.com/articles')
   .then((res => {
     const id = res.data
+    console.log(res.data);
     cards.appendChild(Card(id))
   }))
   .catch((error => {
