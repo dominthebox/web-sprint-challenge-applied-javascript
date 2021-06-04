@@ -66,7 +66,7 @@ const tabsAppender = (selector) => {
   .then((res => {
     const results = res.data;
     console.log(res.data);
-    tabsContainer.appendChild(Tabs(`${results.topics[0]}, ${results.topics[1]}`))
+    tabsContainer.appendChild(Tabs(`${results.topics[0]}`, `${results.topics[1]}`, `${results.topics[2]}`))
   }))
   .catch((error => {
     console.log('Houston we have a problem', error);
