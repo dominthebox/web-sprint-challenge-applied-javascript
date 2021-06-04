@@ -66,7 +66,7 @@ const tabsAppender = (selector) => {
   .then((res => {
     const results = res.data;
     console.log(res.data);
-    tabsContainer.appendChild(Tabs(`${results.topics[0]}`, `${results.topics[1]}`, `${results.topics[2]}`))
+    tabsContainer.appendChild(Tabs(`${results.topics[0]}`, `${results.topics[1]}`, `${results.topics[2]}`))  // I can't figure out what I'm doing wrong with the index here, it only shows the first index in the array and when I try to put the index at text content like ${topic[2]} etc it only does the index of the word so it would literally be the letter V for [2]
   }))
   .catch((error => {
     console.log('Houston we have a problem', error);

@@ -29,10 +29,10 @@ const Card = (article) => {
   const authorN = document.createElement('span');
 
   // setting the class names
-  card.classList.add("card");
-  headline.classList.add("headline");
-  author.classList.add("author");
-  imgContainer.classList.add("img-container");
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
   
   // setting text content
   headline.textContent = article.headline;
@@ -69,9 +69,12 @@ const cardAppender = (selector) => {
   axios
   .get('https://lambda-times-api.herokuapp.com/articles')
   .then((res => {
-    const id = res.data
+    const articlesArray = res.data
     console.log(res.data);
-    cards.appendChild(Card(id))
+    // articlesArray.map(articleTopic => {    // I tried using map here to go through the array but I don't understand how to select all  the    article topics within the 'articles' array
+    //     return Card(articlesArray)
+    // })
+    cards.appendChild(Card(articlesArray))  // with this line I can at least see that the card is rendering to the page and I can see that my event listener is working when I click on the card but it won't show the headline of 'undefined'
   }))
   .catch((error => {
     console.log('Houston we have a problem', error);
