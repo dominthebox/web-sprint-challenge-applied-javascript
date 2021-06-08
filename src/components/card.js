@@ -69,8 +69,8 @@ const cardAppender = (selector) => {
   axios
   .get('https://lambda-times-api.herokuapp.com/articles')
   .then((res => {
-    const articlesArray = res.data
-    console.log(res.data);
+    const articlesArray = res.data.articles
+    console.log(articlesArray);
     // articlesArray.map(articleTopic => {    // I tried using map here to go through the array but I don't understand how to select all  the    article topics within the 'articles' array
     //     return Card(articlesArray)
     // })

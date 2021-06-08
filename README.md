@@ -75,7 +75,21 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+
+The DOM stands for Document Object Model, because when a web browser loads a website it builds a model for how the webpage should look and act using JavaScript. The model built is what's known as an Object in JavaScript, containing every element in order on the web page. The JavaScript Object that is built is referred to as the DOM. It's data structure is built like a 'tree' because the parent elements will have children elements nested in them.
+
 2. What is an event?
+
+When a user visits a web page, every single interaction the user performs on the web page is detected by the browser. These actions include things like: clicking on different parts of the web page, scrolling up and down with the mouse wheel, pressing a key on the keyboard to navigate the page, moving the mouse cursor around. All these actions are considered Events on the web page and when they are performed by the user, the browser registers which Event is triggered.
+
 3. What is an event listener?
+
+An event listener is a method that takes two arguments, a specific event to 'listen' for and a callback function to execute once that specific event is triggered by the user on the web page.
+
 4. Why would we convert a NodeList into an Array?
+
+Both NodeList's and Arrays have their own prototypes, methods, and properties. So if we wanted to perform certain operations or tasks with our NodeList, we can convert them into a New Array of values to perform Array methods such as .map, .filter, .reduce, and .forEach to loop through and help us execute tasks.
+
 5. What is a component?
+
+A Component is made up of HTML, CSS, and JavaScript, to be reusable in a website or application. It's usually a single modular piece of code that can stand alone and be reusable throughout a webpage. For example you could write code to make a button a Component on your webpage, this way it's easier to create as many buttons as you need on your webpage.

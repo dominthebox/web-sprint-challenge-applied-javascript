@@ -16,36 +16,19 @@ const Tabs = (topics) => {
   // </div>
   //
 
-  // creating the elements
+  // creating the element
   const topicsElement = document.createElement('div');
-  const tabElement = document.createElement('div');
-  const tabElement2 = document.createElement('div');
-  const tabElement3 = document.createElement('div');
-  const tabElement4 = document.createElement('div');
-  const tabElement5 = document.createElement('div');
   
-  // setting the class names
+  // setting the class name
   topicsElement.classList.add("topics");
-  tabElement.classList.add("tab");
-  tabElement2.classList.add("tab");
-  tabElement3.classList.add("tab");
-  tabElement4.classList.add("tab");
-  tabElement5.classList.add("tab");
   
-  // setting the text content
-  tabElement.textContent = `${topics}`
-  tabElement2.textContent = `${topics}`
-  tabElement3.textContent = `${topics}`
-  tabElement4.textContent = `${topics}`
-  tabElement5.textContent = `${topics}`
-  
-
-  //setting the structure
-  topicsElement.appendChild(tabElement);
-  topicsElement.appendChild(tabElement2);
-  topicsElement.appendChild(tabElement3);
-  topicsElement.appendChild(tabElement4);
-  topicsElement.appendChild(tabElement5);
+  // looping over the parameter(s) creating the tab element for each one and filling them with the data from the endpoint below
+  topics.forEach(topic => {
+    const tabElement = document.createElement('div');
+    tabElement.classList.add('tab');
+    tabElement.textContent = `${topic}`;
+    topicsElement.appendChild(tabElement);
+  })
   
   return topicsElement
 }
@@ -63,14 +46,14 @@ const tabsAppender = (selector) => {
 
   axios
   .get(`https://lambda-times-api.herokuapp.com/topics`)
-  .then((res => {
-    const results = res.data;
-    console.log(res.data);
-    tabsContainer.appendChild(Tabs(`${results.topics[0]}`, `${results.topics[1]}`, `${results.topics[2]}`))  // I can't figure out what I'm doing wrong with the index here, it only shows the first index in the array and when I try to put the index at text content like ${topic[2]} etc it only does the index of the word so it would literally be the letter V for [2]
-  }))
-  .catch((error => {
+  .then(res => {
+    const results = res.data.topics;
+    console.log(res.data.topics)
+    const tabs = Tabs(results)
+    tabsContainer.appendChild(tabs)})
+  .catch(error => {
     console.log('Houston we have a problem', error);
-  }))
+  })
 }
 
 export { Tabs, tabsAppender }
